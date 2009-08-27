@@ -1,0 +1,10 @@
+--- ./Makefile.PL.orig	2009-08-27 11:24:58.000000000 +0200
++++ ./Makefile.PL	2009-08-27 11:35:43.000000000 +0200
+@@ -1,6 +1,6 @@
+ use ExtUtils::MakeMaker;
+ 
+-my $ans = prompt("Enable enterprise tests? [y/N]");
++my $ans = 'y';
+ 
+ my $tests = 't/*.t';
+ 
