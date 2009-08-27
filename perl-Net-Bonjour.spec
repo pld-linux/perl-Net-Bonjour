@@ -6,17 +6,16 @@
 %define	pdir	Net
 %define	pnam	Bonjour
 Summary:	Net::Bonjour - Module for DNS service discovery (Apple's Bonjour)
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	Net::Bonjour - moduł dla wykrywania usług za pomocą DNS (Apple Bonjour)
 Name:		perl-Net-Bonjour
-Version:	0.95
+Version:	0.96
 Release:	1
-# same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	f1c1e33a64d45fa5b14e640158fec6ae
-# generic URL, check or change before uncommenting
-#URL:		http://search.cpan.org/dist/Net-Bonjour/
+# Source0-md5:	619e15831c8db014ceff422191fe6538
+URL:		http://search.cpan.org/dist/Net-Bonjour/
+Patch0:		%{name}-prompt.patch
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
@@ -26,21 +25,24 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Net::Bonjour is a set of modules that allow one to discover local services via multicast DNS (mDNS) 
-or enterprise services via traditional DNS.  This method of service discovery has been branded as 
+Net::Bonjour is a set of modules that allow one to discover local
+services via multicast DNS (mDNS) or enterprise services via
+traditional DNS. This method of service discovery has been branded as
 Bonjour by Apple Computer.
 
-The base object would be of the Net::Bonjour class.  This object contains the resolver for DNS service discovery.
+The base object would be of the Net::Bonjour class. This object
+contains the resolver for DNS service discovery.
 
-The base object (Net::Bonjour) will return entry objects of the class Net::Bonjour::Entry.
+The base object (Net::Bonjour) will return entry objects of the class
+Net::Bonjour::Entry.
 
-
-
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Net::Bonjour - moduł dla wykrywania usług za pomocą DNS (Apple
+Bonjour)
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0
 
 %build
 %{__perl} Makefile.PL \
@@ -52,7 +54,7 @@ The base object (Net::Bonjour) will return entry objects of the class Net::Bonjo
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} pure_install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -64,4 +66,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Net/*.pm
 %dir %{perl_vendorlib}/Net/Bonjour
 %{perl_vendorlib}/Net/Bonjour/*.pm
+%{perl_vendorlib}/Net/Rendezvous/Entry.pm
 %{_mandir}/man3/*
