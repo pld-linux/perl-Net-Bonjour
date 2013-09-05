@@ -21,6 +21,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-Net-DNS >= 0.5
 %endif
+Provides:	perl-Net-Rendezvous
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
