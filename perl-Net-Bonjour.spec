@@ -9,7 +9,7 @@ Summary:	Net::Bonjour - Module for DNS service discovery (Apple's Bonjour)
 Summary(pl.UTF-8):	Net::Bonjour - moduł dla wykrywania usług za pomocą DNS (Apple Bonjour)
 Name:		perl-Net-Bonjour
 Version:	0.96
-Release:	2
+Release:	3
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
