@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	Net
 %define	pnam	Bonjour
 Summary:	Net::Bonjour - Module for DNS service discovery (Apple's Bonjour)
